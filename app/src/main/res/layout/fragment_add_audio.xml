@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/screen_background"
+    tools:context=".presentation.addAudio.AddAudioFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/black"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/tvUploadHint"
+        app:layout_constraintTop_toBottomOf="@id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Upload an audio file or record a new one"
+        android:textSize="18sp"
+        android:textColor="@color/dark"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tvTitleHint"
+        app:layout_constraintTop_toBottomOf="@id/tvUploadHint"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textStyle="bold"
+        android:textColor="@color/dark"
+        android:textSize="18sp"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilTitleInput"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="18dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:hint="Enter a title for your audio diary"
+        android:textColorHint="@color/dark"
+        app:hintTextColor="@color/grey"
+        app:boxStrokeColor="@color/grey"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:textColor="@color/dark"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvAudioHint"
+        app:layout_constraintTop_toBottomOf="@id/tilTitleInput"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Audio Source"
+        android:textStyle="bold"
+        android:textColor="@color/dark"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:id="@+id/clFileUploaded"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@id/tvAudioHint"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/button_outlined_white_background"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivAudioUploaded"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/upload_file"
+            />
+
+        <TextView
+            android:id="@+id/tvAudioUploaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:text="Audio uploaded: "
+            android:textColor="@color/dark"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvAudioHint"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnUploadFile"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_outlined_white_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/ripple_custom_color"
+            android:padding="16dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:id="@+id/ivUploadFile"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/upload_file"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvUploadFile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ivUploadFile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Upload File"
+                android:textColor="@color/dark"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnRecordAudio"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_outlined_white_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/ripple_custom_color"
+            android:padding="16dp"
+            android:layout_marginStart="8dp">
+
+            <ImageView
+                android:id="@+id/ivRecordAudio"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/microphone"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvRecordAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/ivRecordAudio"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="Record Audio"
+                android:textColor="@color/dark"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llSubmitButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/llButtons"
+        android:layout_marginTop="32dp"
+        android:layout_marginHorizontal="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/button_outlined_white_background"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:padding="0dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddEntry"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@drawable/gradient_background_button"
+            android:text="Add Entry"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingHorizontal="24dp"
+            android:layout_marginStart="8dp"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

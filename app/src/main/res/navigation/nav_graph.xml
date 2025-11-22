@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/audioListFragment">
+    <fragment
+        android:id="@+id/audioListFragment"
+        android:name="com.example.audiodiary.presentation.audioList.AudioListFragment"
+        android:label="Your Audios"
+        tools:layout="@layout/fragment_audio_list">
+
+        <action
+            android:id="@+id/action_audioListFragment_to_addAudioFragment"
+            app:destination="@id/addAudioFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAudioFragment"
+        android:name="com.example.audiodiary.presentation.addAudio.AddAudioFragment"
+        android:label="Add Audio"
+        tools:layout="@layout/fragment_add_audio">
+
+        <action
+            android:id="@+id/action_addAudioFragment_to_audioListFragment"
+            app:destination="@id/audioListFragment"/>
+
+    </fragment>
+</navigation>
